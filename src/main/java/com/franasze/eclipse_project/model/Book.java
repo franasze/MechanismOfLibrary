@@ -2,6 +2,8 @@ package com.franasze.eclipse_project.model;
 
 public class Book {
 
+	private static int counter = 0;
+
 	private final int id;
 	private final String title;
 	private final String author;
@@ -9,18 +11,19 @@ public class Book {
 	private final int ISBN;
 	private boolean status;
 
-	public Book(int id, String title, String author, int publicationYear, int ISBN, boolean status) {
-		
-		this.id = id;
+	public Book(String title, String author, int publicationYear, int ISBN, boolean status) {
+		id = ++counter;
 		this.title = title;
 		this.author = author;
 		this.publicationYear = publicationYear;
 		this.ISBN = ISBN;
 		this.status = status;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -40,14 +43,15 @@ public class Book {
 	public boolean isStatus() {
 		return status;
 	}
-	
+
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%-35s %-35s %-13s %-9s", title, author, ISBN, status ? "AVAILABLE" : "BORROWED");
+		return String.format("%-1s %-12s %-20s %-10s %-10s %-1s", id, title, author, publicationYear, ISBN,
+				status ? "AVAILABLE" : "BORROWED");
 	}
 
 }

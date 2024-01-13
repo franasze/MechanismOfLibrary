@@ -12,9 +12,9 @@ public class BookDBImplementation2 implements IBookAPI {
 	private final List<Book> books = new ArrayList<>();
 
 	public BookDBImplementation2() {
-		this.books.add(new Book(1, "Pan Tadeusz", "Adam Mickiewicz", 1834, 100, true));
-		this.books.add(new Book(2, "Lalka", "Boleslaw Prus", 1889, 101, true));
-		this.books.add(new Book(3, "Kordian", "Juliusz Slowacki", 1834, 102, true));
+		this.books.add(new Book("Pan Tadeusz", "Adam Mickiewicz", 1834, 100, true));
+		this.books.add(new Book("Lalka", "Boleslaw Prus", 1889, 101, true));
+		this.books.add(new Book("Kordian", "Juliusz Slowacki", 1834, 102, true));
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class BookDBImplementation2 implements IBookAPI {
 
 	@Override
 	public void addBook(Book book) {
-		this.books.add(new Book(book.getId(), book.getTitle(), book.getAuthor(), book.getPublicationYear(),
+		this.books.add(new Book( book.getTitle(), book.getAuthor(), book.getPublicationYear(),
 				book.getISBN(), book.isStatus()));
 
 	}
